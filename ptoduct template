@@ -1,0 +1,889 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product-information": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "grid",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "arrow",
+            "slideshow_controls_style": "dots",
+            "slideshow_mobile_controls_style": "dots",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": false,
+            "media_fit": "cover",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 80,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 12,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 48,
+            "padding-block-end": 16,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_J87VfC": {
+              "type": "group",
+              "name": "Details container",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 24,
+                "width": "custom",
+                "custom_width": 75,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "group_nMm3w6": {
+                  "type": "group",
+                  "name": "Title and price",
+                  "settings": {
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_rwpyUz": {
+                      "type": "text",
+                      "name": "t:names.title",
+                      "settings": {
+                        "text": "<h1>{{ closest.product.title }}</h1>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "h2",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "price_iBYhxh": {
+                      "type": "price",
+                      "settings": {
+                        "show_sale_price_first": true,
+                        "show_installments": true,
+                        "show_tax_info": false,
+                        "type_preset": "h5",
+                        "width": "100%",
+                        "alignment": "left",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "color": "var(--color-foreground)",
+                        "padding-block-start": 4,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_rwpyUz",
+                    "price_iBYhxh"
+                  ]
+                },
+                "variant_picker_VT89rh": {
+                  "type": "variant-picker",
+                  "settings": {
+                    "variant_style": "buttons",
+                    "show_swatches": true,
+                    "alignment": "left",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "buy_buttons_64taHw": {
+                  "type": "buy-buttons",
+                  "settings": {
+                    "stacking": false,
+                    "show_pickup_availability": false,
+                    "gift_card_form": true,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "quantity": {
+                      "type": "quantity",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    },
+                    "add-to-cart": {
+                      "type": "add-to-cart",
+                      "static": true,
+                      "settings": {
+                        "style_class": "button-secondary"
+                      },
+                      "blocks": {}
+                    },
+                    "accelerated-checkout": {
+                      "type": "accelerated-checkout",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "text_wnQCmf": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "{{ closest.product.description }}",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "group_JK8NUb": {
+                  "type": "group",
+                  "name": "Info icons",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": false,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 20,
+                    "padding-block-end": 16,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "group_xKNtX4": {
+                      "type": "group",
+                      "name": "Icon group",
+                      "settings": {
+                        "content_direction": "column",
+                        "vertical_on_mobile": false,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "center",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "icon_9Erkpa": {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "heart",
+                            "width": 32,
+                            "link": "",
+                            "open_in_new_tab": false
+                          },
+                          "blocks": {}
+                        },
+                        "text_QfbPLQ": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Made with care</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "center",
+                            "type_preset": "h6",
+                            "font": "var(--font-primary--family)",
+                            "font_size": "",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "icon_9Erkpa",
+                        "text_QfbPLQ"
+                      ]
+                    },
+                    "divider_zLJwUP": {
+                      "type": "_divider",
+                      "name": "t:names.divider",
+                      "settings": {
+                        "thickness": 1,
+                        "corner_radius": "square",
+                        "width_percent": 100,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "group_AKU3P8": {
+                      "type": "group",
+                      "name": "Icon group",
+                      "settings": {
+                        "content_direction": "column",
+                        "vertical_on_mobile": false,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "center",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "icon_tJpnRn": {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "serving_dish",
+                            "width": 32,
+                            "link": "",
+                            "open_in_new_tab": false
+                          },
+                          "blocks": {}
+                        },
+                        "text_b3t8my": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Heirloom quality</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "center",
+                            "type_preset": "h6",
+                            "font": "var(--font-primary--family)",
+                            "font_size": "",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "icon_tJpnRn",
+                        "text_b3t8my"
+                      ]
+                    },
+                    "divider_k33q9U": {
+                      "type": "_divider",
+                      "name": "t:names.divider",
+                      "settings": {
+                        "thickness": 1,
+                        "corner_radius": "square",
+                        "width_percent": 100,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "group_49bT4f": {
+                      "type": "group",
+                      "name": "Icon group",
+                      "settings": {
+                        "content_direction": "column",
+                        "vertical_on_mobile": false,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "center",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "icon_8ci8XA": {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "leather",
+                            "width": 32,
+                            "link": "",
+                            "open_in_new_tab": false
+                          },
+                          "blocks": {}
+                        },
+                        "text_qn3jAU": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Premium materials</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "center",
+                            "type_preset": "h6",
+                            "font": "var(--font-primary--family)",
+                            "font_size": "",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "icon_8ci8XA",
+                        "text_qn3jAU"
+                      ]
+                    },
+                    "divider_dMimy3": {
+                      "type": "_divider",
+                      "name": "t:names.divider",
+                      "settings": {
+                        "thickness": 1,
+                        "corner_radius": "square",
+                        "width_percent": 100,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "group_WXkUAx": {
+                      "type": "group",
+                      "name": "Icon group",
+                      "settings": {
+                        "content_direction": "column",
+                        "vertical_on_mobile": false,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "center",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "background_media": "none",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "icon_m9YPRU": {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "shirt",
+                            "width": 32,
+                            "link": "",
+                            "open_in_new_tab": false
+                          },
+                          "blocks": {}
+                        },
+                        "text_RGzFRc": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Classic styling</p>",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "center",
+                            "type_preset": "h6",
+                            "font": "var(--font-primary--family)",
+                            "font_size": "",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "icon_m9YPRU",
+                        "text_RGzFRc"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "group_xKNtX4",
+                    "divider_zLJwUP",
+                    "group_AKU3P8",
+                    "divider_k33q9U",
+                    "group_49bT4f",
+                    "divider_dMimy3",
+                    "group_WXkUAx"
+                  ]
+                },
+                "product_recommendations_Rpc8dN": {
+                  "type": "product-recommendations",
+                  "settings": {
+                    "recommendation_type": "complementary",
+                    "layout_type": "grid",
+                    "carousel_on_mobile": true,
+                    "max_products": 4,
+                    "columns_gap": 16,
+                    "rows_gap": 16,
+                    "icons_style": "arrow",
+                    "icons_shape": "none",
+                    "gap": 12,
+                    "border_radius": 0,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_wdNxWE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<h2>Styled With</h2>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "h6",
+                        "font": "var(--font-primary--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 12,
+                        "padding-block-end": 8,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "static-product-card": {
+                      "type": "_product-card",
+                      "static": true,
+                      "settings": {
+                        "product_card_gap": 16,
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "product_card_gallery_x43fdQ": {
+                          "type": "_product-card-gallery",
+                          "name": "Media",
+                          "settings": {
+                            "image_ratio": "portrait",
+                            "border": "none",
+                            "border_width": 1,
+                            "border_opacity": 100,
+                            "border_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "product_title_rBnGGd": {
+                          "type": "product-title",
+                          "name": "t:names.product_title",
+                          "settings": {
+                            "width": "fit-content",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "h5",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "price_9MejeE": {
+                          "type": "price",
+                          "name": "t:names.product_price",
+                          "settings": {
+                            "show_sale_price_first": true,
+                            "show_installments": false,
+                            "show_tax_info": false,
+                            "type_preset": "",
+                            "width": "100%",
+                            "alignment": "left",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "color": "var(--color-foreground)",
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        },
+                        "swatches_E34Pte": {
+                          "type": "swatches",
+                          "name": "t:names.swatches",
+                          "settings": {
+                            "product_swatches_alignment": "flex-start",
+                            "product_swatches_alignment_mobile": "flex-start",
+                            "hide_padding": false,
+                            "product_swatches_padding_top": 4,
+                            "product_swatches_padding_bottom": 0,
+                            "product_swatches_padding_left": 0,
+                            "product_swatches_padding_right": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "product_card_gallery_x43fdQ",
+                        "product_title_rBnGGd",
+                        "price_9MejeE",
+                        "swatches_E34Pte"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "text_wdNxWE"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_nMm3w6",
+                "variant_picker_VT89rh",
+                "buy_buttons_64taHw",
+                "text_wnQCmf",
+                "group_JK8NUb",
+                "product_recommendations_Rpc8dN"
+              ]
+            }
+          },
+          "block_order": [
+            "group_J87VfC"
+          ]
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "right",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 12,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 32
+      }
+    },
+    "custom_liquid_PmGyqP": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"femi-product-master-wrapper\">\n  <div class=\"product-main-container\">\n\n    <div class=\"femi-nav-header-row\">\n      <nav class=\"femi-breadcrumbs\" aria-label=\"breadcrumbs\">\n        <a href=\"/\">Home</a>\n        {% if collection.url %}\n          <span class=\"breadcrumb-sep\">›</span>\n          <a href=\"{{ collection.url }}\">{{ collection.title }}</a>\n        {% endif %}\n        <span class=\"breadcrumb-sep\">›</span>\n        <span class=\"breadcrumb-current\" aria-current=\"page\">{{ product.title }}</span>\n      </nav>\n\n      {% assign prev_url = nil %}\n      {% assign next_url = nil %}\n\n      {% if collection.previous_product or collection.next_product %}\n        {% if collection.previous_product %}{% assign prev_url = collection.previous_product.url %}{% endif %}\n        {% if collection.next_product %}{% assign next_url = collection.next_product.url %}{% endif %}\n      {% else %}\n        {% assign current_col = product.collections.first %}\n        {% if current_col %}\n          {% for prod in current_col.products limit: 50 %}\n            {% if prod.handle == product.handle %}\n              {% assign prev_index = forloop.index0 | minus: 1 %}\n              {% assign next_index = forloop.index0 | plus: 1 %}\n              {% if prev_index >= 0 %}\n                {% assign prev_url = current_col.products[prev_index].url %}\n              {% endif %}\n              {% if next_index < current_col.products.size %}\n                {% assign next_url = current_col.products[next_index].url %}\n              {% endif %}\n              {% break %}\n            {% endif %}\n          {% endfor %}\n        {% endif %}\n      {% endif %}\n\n      {% if prev_url or next_url %}\n        <div class=\"femi-product-prev-next\">\n          {% if prev_url %}\n            <a href=\"{{ prev_url }}\" class=\"nav-link\">‹ PREVIOUS</a>\n          {% endif %}\n          {% if prev_url and next_url %}\n            <span class=\"nav-pipe\">|</span>\n          {% endif %}\n          {% if next_url %}\n            <a href=\"{{ next_url }}\" class=\"nav-link\">NEXT ›</a>\n          {% endif %}\n        </div>\n      {% endif %}\n    </div>\n\n    <div class=\"product-layout-flex\">\n\n      <div class=\"product-media-column\">\n        <div class=\"product-image-frame\">\n          <img \n            srcset=\"{{ product.featured_image | img_url: '500x500' }} 500w,\n                    {{ product.featured_image | img_url: '750x750' }} 750w\"\n            sizes=\"(max-width: 768px) 100vw, 50vw\"\n            src=\"{{ product.featured_image | img_url: '750x750' }}\" \n            id=\"MainProductImg\" \n            alt=\"{{ product.title }} - Ready-to-eat Seed Cycling Superfood by Semi\" \n            onclick=\"openModal()\" \n            style=\"cursor: zoom-in; aspect-ratio: 1/1; object-fit: cover;\" \n            width=\"750\" \n            height=\"750\" \n            fetchpriority=\"high\" \n            loading=\"eager\"\n          >\n        </div>\n        <div class=\"thumbnail-scroller-container\">\n          <div class=\"thumbnail-strip-single-row\" id=\"ThumbStrip\">\n            {% for image in product.images %}\n              <img src=\"{{ image.src | img_url: '100x100' }}\" \n                   class=\"thumb-item {% if forloop.first %}active-thumb{% endif %}\" \n                   onclick=\"setManualImage('{{ image.src | img_url: '750x750' }}', {{ forloop.index0 }})\"\n                   width=\"100\" height=\"100\" loading=\"lazy\" \n                   alt=\"Thumbnail of {{ product.title }} packaging and seed cycling ingredients\">\n            {% endfor %}\n          </div>\n        </div>\n      </div>\n\n      <div class=\"product-details-column\">\n        <h1 class=\"product-main-title\">{{ product.title }}</h1>\n        <div class=\"product-rating-line\" style=\"margin-bottom: 20px;\"></div>\n\n        <div class=\"product-description-text\" style=\"margin-bottom: 30px;\">\n          <p>India's first ready-to-eat daily superfood crafted to support every girl's & women's monthly hormonal balance, based on the concept of seed cycling.</p>\n        </div>\n\n        <div class=\"purchase-frequency-wrapper\">\n          <label class=\"frequency-heading\">Choose your frequency</label>\n\n          {% assign onetime_id = product.variants.first.id %}\n          {% for variant in product.variants %}\n            {% if variant.title contains 'One-time' %}\n              {% assign onetime_id = variant.id %}\n              {% break %}\n            {% endif %}\n          {% endfor %}\n\n          <div class=\"frequency-option hover-zoom active\" id=\"optionOneTime\" onclick=\"toggleFrequency('one-time')\">\n            <div class=\"freq-content-row\">\n              <div class=\"freq-radio-cell\">\n                <div class=\"freq-radio-outer\"><div class=\"freq-radio-inner\"></div></div>\n                <span class=\"freq-label\">ONE-TIME PURCHASE:</span>\n              </div>\n              <div class=\"freq-price-cell\">\n                <span class=\"freq-price\">\n                  {% for variant in product.variants %}\n                    {% if variant.title contains 'One-time' %}\n                      {{ variant.price | money }}\n                    {% endif %}\n                  {% endfor %}\n                  {% assign found_onetime = false %}\n                  {% for variant in product.variants %}\n                    {% if variant.title contains 'One-time' %}{% assign found_onetime = true %}{% endif %}\n                  {% endfor %}\n                  {% unless found_onetime %}{{ product.price | money }}{% endunless %}\n                </span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"frequency-option hover-zoom subscribe-box\" id=\"optionSubscribe\" onclick=\"toggleFrequency('subscribe')\">\n            <div class=\"subscribe-top-row\">\n              <div class=\"freq-radio-cell\">\n                <div class=\"freq-radio-outer\"><div class=\"freq-radio-inner\"></div></div>\n                <span class=\"freq-label\">SUBSCRIBE & SAVE</span>\n              </div>\n              <div class=\"freq-price-cell\">\n                <span class=\"old-price\" id=\"OldPriceDisplay\"></span>\n                <span class=\"freq-price highlight\" id=\"SubPriceDisplay\"></span>\n              </div>\n            </div>\n\n            <div id=\"subscriptionDetails\" class=\"subscribe-internal-content\">\n              <div class=\"delivery-dropdown-wrap\">\n                <select id=\"deliveryInterval\" class=\"femi-select\" onchange=\"updateSubscriptionPrice()\" aria-label=\"Delivery Interval\">\n                  {% for variant in product.variants %}\n                    {% assign v_title = variant.title | downcase %}\n                    {% unless v_title contains 'one-time' %}\n                      {% if v_title contains '3 month' %}{% assign strike = \"5998\" %}{% assign sel = \"selected\" %}\n                      {% elsif v_title contains '6 month' %}{% assign strike = \"11994\" %}{% assign sel = \"\" %}\n                      {% elsif v_title contains '12 month' %}{% assign strike = \"23988\" %}{% assign sel = \"\" %}\n                      {% else %}{% assign strike = \"0\" %}{% assign sel = \"\" %}{% endif %}\n                      <option value=\"{{ variant.id }}\" data-price=\"{{ variant.price | divided_by: 100.0 | round: 2 }}\" data-old-price=\"{{ strike }}\" {{ sel }}>{{ variant.title }}</option>\n                    {% endunless %}\n                  {% endfor %}\n                </select>\n              </div>\n\n              <div class=\"benefit-grid\">\n                <div class=\"benefit-item\"><img src=\"https://cdn.shopify.com/s/files/1/0809/8643/9915/files/timely_delivery.webp?v=1770886381\" class=\"benefit-icon\" width=\"20\" height=\"20\" loading=\"lazy\" alt=\"\" aria-hidden=\"true\"><span>Timely, hassle-free deliveries</span></div>\n                <div class=\"benefit-item\"><img src=\"https://cdn.shopify.com/s/files/1/0809/8643/9915/files/save_more.webp?v=1770886381\" class=\"benefit-icon\" width=\"20\" height=\"20\" loading=\"lazy\" alt=\"\" aria-hidden=\"true\"><span>Save more every order</span></div>\n                <div class=\"benefit-item\"><img src=\"https://cdn.shopify.com/s/files/1/0809/8643/9915/files/free_gift.webp?v=1770886382\" class=\"benefit-icon\" width=\"20\" height=\"20\" loading=\"lazy\" alt=\"\" aria-hidden=\"true\"><span>Free Gift on second delivery</span></div>\n                <div class=\"benefit-item\"><img src=\"https://cdn.shopify.com/s/files/1/0809/8643/9915/files/pause_anytime.webp?v=1770886381\" class=\"benefit-icon\" width=\"20\" height=\"20\" loading=\"lazy\" alt=\"\" aria-hidden=\"true\"><span>Pause anytime</span></div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"purchase-actions-row\">\n          <div class=\"qty-selector-container\">\n            <span class=\"qty-label\">QTY</span>\n            <div class=\"qty-stepper-align\">\n              <button type=\"button\" class=\"qty-btn\" onclick=\"adjustQty(-1)\" aria-label=\"Decrease quantity\">‹</button>\n              <input type=\"number\" id=\"FinalQty\" value=\"1\" min=\"1\" readonly aria-label=\"Quantity\">\n              <button type=\"button\" class=\"qty-btn\" onclick=\"adjustQty(1)\" aria-label=\"Increase quantity\">›</button>\n            </div>\n          </div>\n          <button type=\"button\" class=\"femi-btn hover-zoom btn-cart-main\" onclick=\"handleAddToCart(false)\">ADD TO CART</button>\n        </div>\n        <button type=\"button\" class=\"femi-btn hover-zoom btn-buy-now\" onclick=\"handleAddToCart(true)\">BUY NOW</button>\n\n        <div class=\"product-description-text\" style=\"margin-top: 30px;\">\n          <h2 style=\"font-size: 16px; margin-bottom: 10px;\">A natural approach to hormonal balance by:</h2>\n          <ul style=\"margin: 10px 0; padding-left: 20px;\">\n            <li>Supporting regular periods</li><li>Reducing menstrual cramps</li>\n            <li>Easing PMS symptoms and mood swings</li>\n            <li>Balancing hormones for PCOD & PCOS</li>\n            <li>Reducing inflammation and hormonal acne</li>\n            <li>Enhancing fertility health</li>\n            <li>Easing perimenopause & menopause transitions</li>\n            <li>Reducing hot flashes and boosting energy levels</li>\n          </ul>\n        </div>\n        <div class=\"product-meta-tags\" style=\"margin: 10px 0;\"><strong>PLANT-BASED&nbsp;&nbsp;|&nbsp;&nbsp;DAIRY-FREE&nbsp;&nbsp;|&nbsp;&nbsp;CLEAN-LABEL&nbsp;&nbsp;|&nbsp;&nbsp;NO ADDED SUGAR</strong></div>\n\n        <div class=\"product-details-accordions\">\n          <details class=\"acc-detail-item\">\n            <summary>SUBSCRIPTION <span class=\"acc-icon\"></span></summary>\n            <div class=\"acc-inner-text\">\n              <p><strong>3 months</strong> → 3 deliveries (📅 every 28 days) • <strong>Save ₹500</strong></p>\n              <p><strong>6 months</strong> → 6 deliveries (📅 every 28 days) • <strong>Save ₹1060</strong></p>\n              <p><strong>12 months</strong> → 12 deliveries (📅 every 28 days) • <strong>Save ₹3000 (Best Deal)</strong></p>\n            </div>\n          </details>\n          <details class=\"acc-detail-item\">\n            <summary>WHEN TO EAT? <span class=\"acc-icon\"></span></summary>\n            <div class=\"acc-inner-text\">\n              <p><strong>Purple Semi:</strong> Eat 1 Semi everyday from Day 1 to Day 14 of your cycle (starting from the first day of your period).</p>\n              <p><strong>Pink Semi:</strong> Eat 1 Semi everyday from Day 15 to Day 28.</p>\n              <br>\n              <p><strong>MISSED STARTING ON DAY 1?</strong></p>\n              <p>No worries! You can start on any day of your cycle. pick the right Semi based on that:</p>\n              <ul style=\"margin: 10px 0; padding-left: 20px;\">\n                <li>If you're between Day 1–14, start with <strong>Purple Semi</strong></li>\n                <li>If you're between Day 15–28, start with <strong>Pink Semi</strong></li>\n              </ul>\n              <br>\n              <p><strong>IRREGULAR PERIODS?</strong> Let the moon lead the way!</p>\n              <p><strong>Purple Semi:</strong> Eat 1 Semi from New Moon to Full Moon.</p>\n              <p><strong>Pink Semi:</strong> Eat 1 Semi from Full Moon to New Moon.</p>\n            </div>\n          </details>\n          <details class=\"acc-detail-item\">\n            <summary>CONTENTS OF MONTHLY PACK <span class=\"acc-icon\"></span></summary>\n            <div class=\"acc-inner-text\">\n              <p><strong>What Each Kit Contains?</strong></p>\n              <ul style=\"margin: 10px 0; padding-left: 20px;\">\n                <li><strong>2 boxes</strong> — 1 Purple Box + 1 Pink Box</li>\n                <li>Each box contains 14 Semis for you + 1 extra Semi to share</li>\n                <li><strong>Total:</strong> 28 daily Semis + 2 bonus Semis (30 in all)</li>\n              </ul>\n              <br>\n              <p><strong>Why Two Boxes?</strong></p>\n              <p>Because each box is crafted for a different phase of your monthly cycle:</p>\n              <ul style=\"margin: 10px 0; padding-left: 20px;\">\n                <li><strong>Purple Semis</strong> (Pumpkin seeds + Flaxseeds) → For Phase 1 (Day 1 to 14)</li>\n                <li><strong>Pink Semis</strong> (Sunflower seeds + Sesame) → For Phase 2 (Day 15 to 28)</li>\n              </ul>\n            </div>\n          </details>\n          <details class=\"acc-detail-item\">\n            <summary>INGREDIENTS <span class=\"acc-icon\"></span></summary>\n            <div class=\"acc-inner-text\">\n              <p><strong>Purple Semi:</strong> Dates(35%), Pumpkin seeds (25%), Flaxseeds (25%), Oat extract (9%), Gond Katira (2%), Cocoa powder (2%), Cinnamon, Pink Salt</p>\n              <p><strong>Pink Semi:</strong> Dates(35%), Sunflower seeds (25%), Sesame (25%), Oat extract (9%), Gond Katira (2%), Cocoa powder (2%), Cinnamon, Pink Salt</p>\n              <p>And loads of love and light...</p>\n            </div>\n          </details>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div id=\"sideCart\" class=\"femi-cart-drawer\">\n  <div class=\"cart-drawer-header\">\n    <span class=\"cart-title\">Cart (<span id=\"cartCount\">0 items</span>)</span>\n    <span class=\"close-cart\" onclick=\"toggleCart(false)\">&times;</span>\n  </div>\n\n  <div class=\"cart-drawer-content\" id=\"cartItems\">\n    </div>\n\n  <div class=\"cart-drawer-footer-section\">\n    <div class=\"cart-promo-section\">\n      <div class=\"promo-text-line\">\n        <span class=\"promo-icon\">🏷️</span>\n        <span>Enter a promo code</span>\n      </div>\n      <div class=\"promo-input-row\">\n        <input type=\"text\" id=\"cartPromoInput\" placeholder=\"Enter code\" oninput=\"clearPromoError()\">\n        <button class=\"promo-apply-btn\" id=\"promoActionBtn\" onclick=\"handlePromoCode()\">Apply</button>\n      </div>\n      <p id=\"promoErrorMsg\" class=\"promo-error-text\" style=\"display:none;\">Invalid Code</p>\n    </div>\n\n    <div class=\"cart-totals-section\">\n      <div class=\"footer-row\">\n        <span>Subtotal</span>\n        <span id=\"subTotalDisplay\">₹0.00</span>\n      </div>\n\n      <div id=\"promoDiscountContainer\" style=\"display: none;\"></div>\n\n      <div class=\"footer-row estimated-total\">\n        <span>Estimated total</span>\n        <span id=\"finalTotalDisplay\">₹0.00</span>\n      </div>\n\n      <div class=\"footer-row savings-row\" id=\"totalSavingsContainer\" style=\"display:none;\">\n        <span>Total Savings</span>\n        <span id=\"totalSavingsDisplay\">₹0.00</span>\n      </div>\n    </div>\n\n    <div class=\"cart-action-buttons\">\n      <button class=\"side-btn btn-blue\" onclick=\"triggerMagicCheckout()\">Checkout</button>\n      <button class=\"side-btn btn-blue-outline\" onclick=\"window.location.href='/cart'\">View Cart</button>\n    </div>\n  </div>\n</div>\n\n<div id=\"imageModal\" class=\"femi-modal\">\n  <span class=\"close-modal\" onclick=\"closeModal()\">&times;</span>\n  <img class=\"modal-content\" id=\"img01\" alt=\"Product zoomed view\">\n</div>\n\n<style>\n  /* --- DESKTOP STYLES --- */\n  .femi-product-master-wrapper { padding: 140px 5% 60px 5%; background: #ffffff; color: #162150; }\n  .product-main-container { max-width: 1400px; margin: 0 auto; }\n  .femi-nav-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }\n  .femi-breadcrumbs { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }\n  .femi-breadcrumbs a { text-decoration: none; color: #162150; opacity: 0.6; }\n  .breadcrumb-sep { margin: 0 10px; opacity: 0.4; }\n  .femi-product-prev-next { font-size: 14px; font-weight: 600; letter-spacing: 1px; }\n  .nav-link { text-decoration: none; color: #162150; opacity: 0.6; }\n  .nav-pipe { margin: 0 10px; opacity: 0.2; }\n\n  .product-layout-flex { display: flex; gap: 60px; align-items: flex-start; }\n  .product-media-column, .product-details-column { width: 50%; flex: 1 1 50%; }\n\n  /* Image Transition */\n  .product-image-frame { border-radius: 40px; border: 2px solid #162150; margin-bottom: 25px; overflow: hidden; position: relative; }\n  .product-image-frame img { width: 100%; height: auto; display: block; transition: opacity 0.4s ease-in-out; }\n\n  /* Scrollbar Logic */\n  .thumbnail-scroller-container { width: 100%; overflow: hidden; } \n  .thumbnail-strip-single-row { \n    display: flex; gap: 15px; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; \n    scrollbar-width: thin; scrollbar-color: transparent transparent; transition: scrollbar-color 0.3s;\n  }\n  .thumbnail-scroller-container:hover .thumbnail-strip-single-row { scrollbar-color: #162150 #eee; }\n  .thumbnail-strip-single-row::-webkit-scrollbar { height: 6px; background: transparent; }\n  .thumbnail-strip-single-row::-webkit-scrollbar-thumb { background: transparent; border-radius: 10px; }\n  .thumbnail-scroller-container:hover .thumbnail-strip-single-row::-webkit-scrollbar-thumb { background: #162150; }\n  .thumbnail-scroller-container:hover .thumbnail-strip-single-row::-webkit-scrollbar-track { background: #eee; border-radius: 10px; }\n\n  .thumb-item { flex: 0 0 100px; height: 100px; border-radius: 15px; border: 2px solid #eee; cursor: pointer; object-fit: cover; transition: all 0.2s; }\n  .thumb-item.active-thumb { border-color: #162150; transform: scale(1.05); }\n  .hover-zoom { transition: transform 0.2s ease; }\n  .hover-zoom:hover { transform: scale(1.02); }\n\n  /* Modal Styles */\n  .femi-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }\n  .modal-content { margin: auto; display: block; width: auto; max-width: 90%; max-height: 90vh; border-radius: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 20px rgba(0,0,0,0.5); }\n  .close-modal { position: absolute; top: 20px; right: 30px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 100000; line-height: 1; background: rgba(0, 0, 0, 0.5); width: 50px; height: 50px; border-radius: 50%; text-align: center; display: flex; align-items: center; justify-content: center; transition: 0.3s; }\n  .close-modal:hover { background: rgba(0, 0, 0, 0.8); color: #bbb; }\n\n  /* Purchase Options Layout */\n  .purchase-frequency-wrapper { margin-bottom: 0; }\n  .frequency-heading { display: block; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }\n  .frequency-option { border: 2px solid #162150; background: #ffbc42; border-radius: 30px; padding: 20px; margin-bottom: 15px; cursor: pointer; }\n  .frequency-option.active { background: #ffbc42; box-shadow: 0 5px 15px rgba(22,33,80,0.1); }\n  .freq-content-row, .subscribe-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }\n  .freq-radio-cell { display: flex; align-items: center; gap: 12px; }\n  .freq-radio-outer { width: 24px; height: 24px; border: 2px solid #162150; border-radius: 50%; display: flex; align-items: center; justify-content: center; }\n  .freq-radio-inner { width: 12px; height: 12px; background: transparent; border-radius: 50%; }\n  .frequency-option.active .freq-radio-inner { background: #162150; }\n  .old-price { font-size: 16px; text-decoration: line-through; opacity: 0.6; margin-right: 8px; color: #162150; }\n  .highlight { font-weight: 700; color: #162150; font-size: 20px; }\n  .freq-label { font-size: 13px; font-weight: 800; color: #162150; }\n  .freq-price { font-size: 18px; font-weight: 700; color: #162150; }\n\n  /* Benefit Grid & Select */\n  .subscribe-internal-content { display: block; margin-top: 20px; border-top: 1px solid #fff; padding-top: 20px; }\n  .benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }\n  .benefit-item { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; }\n  .benefit-icon { width: 20px; height: 20px; }\n  .femi-select { width: 100%; padding: 8px 15px; border-radius: 40px; border: 1.5px solid #162150; font-size: 13px; color: #162150 !important; background: #fff; }\n\n  /* QTY & Actions */\n  .purchase-actions-row { display: flex; border-radius: 50px; border: 2.2px solid #162150; margin-top: 30px; overflow: hidden; align-items: stretch; }\n  .qty-selector-container { flex: 1; display: flex; align-items: center; padding: 0 20px; border-right: 2.2px solid #162150; background: #fff; }\n  .qty-label { font-size: 11px; font-weight: 800; margin-right: 15px; }\n  .qty-stepper-align { display: flex; align-items: center; gap: 10px; }\n  .qty-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #162150; }\n  .qty-stepper-align input { border: none; width: 40px; text-align: center; font-size: 18px; font-weight: 700; color: #162150; background: transparent; }\n  .btn-cart-main, .btn-buy-now { border: none; font-weight: 700; font-family: inherit; cursor: pointer; }\n  .btn-cart-main { flex: 1.5; background: #162150; color: #fff; padding: 22px; font-size: 18px; }\n  .btn-buy-now { width: 100%; margin-top: 15px; padding: 20px; border-radius: 50px; background: #FFBC42; color: #162150; font-size: 18px; }\n\n  /* Accordion */\n  .acc-detail-item { border-bottom: 1px solid #eee; }\n  .acc-detail-item summary { padding: 20px 0; font-size: 14px; font-weight: 800; color: #162150; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }\n  .acc-icon::before { content: \"+\"; font-size: 20px; }\n  .acc-detail-item[open] .acc-icon::before { content: \"−\"; }\n  .acc-inner-text { padding-bottom: 25px; }\n\n  /* --- SIDE CART STYLES --- */\n  .femi-cart-drawer { position: fixed; right: -420px; top: 0; width: 420px; height: 100%; background: #fff; z-index: 10000; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }\n  .femi-cart-drawer.open { right: 0; }\n  .cart-drawer-header { background: #162150; color: #fff; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }\n  .cart-title { font-weight: 700; font-size: 18px; }\n  .close-cart { font-size: 32px; cursor: pointer; line-height: 1; font-weight: 300; }\n  .cart-drawer-content { flex: 1; overflow-y: auto; padding: 20px 25px; border-bottom: 1px solid #eee; }\n  .drawer-item-row { display: flex; gap: 15px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #f0f0f0; }\n  .drawer-item-row:last-child { border-bottom: none; }\n  .drawer-item-img { width: 80px; height: 80px; object-fit: cover; border-radius: 12px; border: 1px solid #eee; flex-shrink: 0; }\n  .drawer-item-details { flex: 1; display: flex; flex-direction: column; gap: 4px; position: relative; }\n  .drawer-item-title { font-weight: 700; font-size: 14px; color: #162150; margin: 0; padding-right: 30px; line-height: 1.3; }\n\n  /* Discount & Price Styles */\n  .item-discount-name { font-size: 11px; background: #FFBC42; padding: 2px 6px; border-radius: 4px; color: #162150; width: fit-content; font-weight: 700; margin-bottom: 2px; }\n  .item-price-row { display: flex; align-items: center; gap: 8px; }\n  .drawer-item-price-unit { font-weight: 600; font-size: 14px; color: #162150; margin: 0; }\n  .drawer-item-price-strike { font-size: 13px; text-decoration: line-through; opacity: 0.5; color: #162150; }\n\n  .drawer-trash-btn { position: absolute; top: 0; right: 0; background: none; border: none; cursor: pointer; font-size: 18px; color: #999; padding: 0; }\n  .drawer-trash-btn:hover { color: #ff4444; }\n  .drawer-item-duration { font-size: 12px; color: #666; margin: 0; }\n  .drawer-qty-price-flex { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }\n  .drawer-qty-stepper { display: flex; align-items: center; border: 1.5px solid #162150; border-radius: 8px; height: 32px; overflow: hidden; }\n  .drawer-qty-stepper button { width: 32px; height: 100%; border: none; background: #fff; cursor: pointer; font-size: 18px; font-weight: 700; color: #162150; display: flex; align-items: center; justify-content: center; }\n  .drawer-qty-stepper button:hover { background: #f5f5f5; }\n  .drawer-qty-stepper button:disabled { opacity: 0.3; cursor: not-allowed; }\n  .drawer-qty-stepper input { width: 40px; text-align: center; border: none; font-weight: 700; background: #fff; pointer-events: none; font-size: 14px; color: #162150; }\n  .drawer-line-total { font-weight: 700; font-size: 16px; color: #162150; }\n\n  /* Footer Section */\n  .cart-drawer-footer-section { flex-shrink: 0; background: #fff; }\n  .cart-promo-section { padding: 20px 25px; border-top: 1px solid #eee; }\n  .promo-text-line { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #162150; }\n  .promo-icon { font-size: 18px; }\n  .promo-input-row { display: flex; border: 1.5px solid #ddd; border-radius: 12px; overflow: hidden; }\n  .promo-input-row input { flex: 1; padding: 12px 15px; border: none; outline: none; font-size: 14px; color: #162150; }\n\n  .promo-error-text { color: #dc2626; font-size: 12px; font-weight: 600; margin-top: 8px; margin-bottom: 0; }\n\n  .promo-apply-btn { background: #0869D9; color: #fff; border: none; padding: 0 20px; font-weight: 700; cursor: pointer; font-size: 13px; white-space: nowrap; transition: background 0.2s; }\n  .promo-apply-btn:hover { background: #0654b3; }\n  .promo-apply-btn.remove-mode { background: #dc2626; }\n  .promo-apply-btn.remove-mode:hover { background: #b91c1c; }\n\n  /* Totals Section */\n  .cart-totals-section { padding: 20px 25px; border-top: 1px solid #eee; }\n  .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 14px; color: #162150; }\n  .footer-row:last-child { margin-bottom: 0; }\n  .promo-discount-row { color: #0869D9; font-weight: 600; }\n  .estimated-total { font-weight: 700; font-size: 18px; color: #162150; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; }\n\n  /* Savings Row Style */\n  .savings-row { color: #16a34a; font-weight: 800; font-size: 15px; margin-top: 10px; border-top: 1px dashed #eee; padding-top: 10px; }\n\n  .cart-action-buttons { padding: 20px 25px; display: flex; flex-direction: column; gap: 12px; }\n  .side-btn { width: 100%; padding: 16px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; font-family: inherit; transition: all 0.2s; }\n  .btn-blue { background: #0869D9; color: #fff; border: none; }\n  .btn-blue:hover { background: #0654b3; transform: translateY(-2px); }\n  .btn-blue-outline { background: transparent; color: #0869D9; border: 2px solid #0869D9; }\n  .btn-blue-outline:hover { background: #0869D9; color: #fff; }\n\n  /* --- MOBILE ADJUSTMENTS --- */\n  @media (max-width: 768px) {\n    /* Fix overlapping breadcrumbs */\n    .femi-nav-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }\n\n    .femi-product-master-wrapper { padding: 130px 5% 40px 5%; }\n    .product-layout-flex { flex-direction: column; gap: 30px; }\n    .product-media-column, .product-details-column { width: 100%; }\n    .femi-cart-drawer { width: 90%; right: -90%; }\n    .drawer-item-img { width: 70px; height: 70px; }\n    .drawer-item-title { font-size: 13px; }\n    .drawer-qty-stepper { height: 28px; }\n    .drawer-qty-stepper button { width: 28px; }\n  }\n</style>\n\n<script>\n  let activeMode = 'one-time';\n  let appliedPromoCode = null;\n  let isEditing = false;\n\n  /* --- SLIDESHOW VARIABLES --- */\n  let slideIndex = 0;\n  let slideInterval;\n  let resumeTimeout;\n  const SLIDE_DURATION = 3500;\n  const PAUSE_DURATION = 6000;\n\n  document.addEventListener(\"DOMContentLoaded\", function() {\n      updateSubscriptionPrice();\n\n      document.getElementById('imageModal').addEventListener('click', function(e) {\n          if (e.target === this) closeModal();\n      });\n\n      const accordions = document.querySelectorAll('.acc-detail-item');\n      accordions.forEach(acc => {\n        acc.querySelector('summary').addEventListener('click', function(e) {\n          accordions.forEach(other => {\n            if (other !== acc) {\n              other.removeAttribute('open');\n            }\n          });\n        });\n      });\n  });\n\n  /* --- SLIDESHOW LOGIC --- */\n  function startSlideshow() {\n    if (window.innerWidth <= 768) return; \n    clearInterval(slideInterval);\n    slideInterval = setInterval(() => { nextImage(); }, SLIDE_DURATION);\n  }\n\n  function nextImage() {\n    const thumbs = document.querySelectorAll('.thumb-item');\n    if(thumbs.length === 0) return;\n    slideIndex++;\n    if (slideIndex >= thumbs.length) slideIndex = 0;\n    updateMainDisplay(thumbs[slideIndex].src, slideIndex);\n  }\n\n  function updateMainDisplay(src, index) {\n      const mainImg = document.getElementById('MainProductImg');\n      const highRes = src.replace('100x100', '750x750');\n      mainImg.style.opacity = '0.7';\n      setTimeout(() => {\n          mainImg.src = highRes;\n          mainImg.style.opacity = '1';\n      }, 150);\n      const thumbs = document.querySelectorAll('.thumb-item');\n      thumbs.forEach(t => t.classList.remove('active-thumb'));\n      if(thumbs[index]) thumbs[index].classList.add('active-thumb');\n      const thumbStrip = document.getElementById('ThumbStrip');\n      if(thumbs[index]) {\n          const scrollLeft = thumbs[index].offsetLeft - (thumbStrip.clientWidth / 2) + (thumbs[index].clientWidth / 2);\n          thumbStrip.scrollTo({ left: scrollLeft, behavior: 'smooth' });\n      }\n  }\n\n  function setManualImage(src, index) {\n      clearInterval(slideInterval);\n      clearTimeout(resumeTimeout);\n      slideIndex = index;\n      updateMainDisplay(src, index);\n      if (window.innerWidth > 768) {\n        resumeTimeout = setTimeout(() => { startSlideshow(); }, PAUSE_DURATION);\n      }\n  }\n\n  /* --- PRODUCT & CART LOGIC --- */\n  function updateSubscriptionPrice() {\n    const dropdown = document.getElementById('deliveryInterval');\n    if(!dropdown) return;\n    const sel = dropdown.options[dropdown.selectedIndex];\n    document.getElementById('SubPriceDisplay').innerText = \"Rs. \" + parseFloat(sel.getAttribute('data-price')).toLocaleString('en-IN') + \".00\";\n    document.getElementById('OldPriceDisplay').innerText = \"Rs. \" + parseFloat(sel.getAttribute('data-old-price')).toLocaleString('en-IN') + \".00\";\n  }\n\n  function toggleFrequency(type) {\n    activeMode = type;\n    document.getElementById('optionOneTime').classList.toggle('active', type === 'one-time');\n    document.getElementById('optionSubscribe').classList.toggle('active', type === 'subscribe');\n  }\n\n  function adjustQty(val) {\n    let input = document.getElementById('FinalQty');\n    let newVal = parseInt(input.value) + val;\n    if (newVal >= 1) input.value = newVal;\n  }\n\n  function handleAddToCart(isBuyNow) {\n    let variantId;\n    let properties = {};\n    const qty = parseInt(document.getElementById('FinalQty').value);\n    const buyBtn = document.querySelector('.btn-buy-now');\n    const originalText = buyBtn.innerText;\n\n    if (activeMode === 'one-time') {\n        variantId = parseInt(\"{{ onetime_id }}\");\n    } else {\n        const dropdown = document.getElementById('deliveryInterval');\n        variantId = parseInt(dropdown.value);\n        const sel = dropdown.options[dropdown.selectedIndex];\n        const oldPriceVal = sel.getAttribute('data-old-price');\n        if(oldPriceVal && oldPriceVal !== \"0\") {\n            properties['_market_price'] = oldPriceVal;\n        }\n    }\n\n    if (isBuyNow) {\n        buyBtn.innerText = \"Processing...\";\n        buyBtn.style.opacity = \"0.7\";\n        buyBtn.style.pointerEvents = \"none\";\n    }\n\n    fetch('/cart/add.js', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ items: [{ id: variantId, quantity: qty, properties: properties }] })\n    })\n    .then(res => {\n        if (!res.ok) throw new Error('Cart add failed');\n        return res.json();\n    })\n    .then(() => {\n        window.dispatchEvent(new CustomEvent('cart:updated'));\n        if (isBuyNow) {\n            buyBtn.innerText = originalText;\n            buyBtn.style.opacity = \"1\";\n            buyBtn.style.pointerEvents = \"auto\";\n            triggerMagicCheckout();\n        } else {\n            refreshCart();\n        }\n    })\n    .catch((error) => {\n        console.error('Add to cart error:', error);\n        if (isBuyNow) {\n            buyBtn.innerText = originalText;\n            buyBtn.style.opacity = \"1\";\n            buyBtn.style.pointerEvents = \"auto\";\n        }\n    });\n  }\n\n  /* --- MAGIC CHECKOUT TRIGGER --- */\n  function triggerMagicCheckout() {\n      window.dispatchEvent(new CustomEvent('cart:updated'));\n      window.location.href = '/checkout';\n  }\n\n  /* --- PROMO CODE LOGIC --- */\n  function clearPromoError() {\n      document.getElementById('promoErrorMsg').style.display = 'none';\n  }\n\n  function handlePromoCode() {\n    const promoInput = document.getElementById('cartPromoInput');\n    const promoCode = promoInput.value.trim().toUpperCase();\n\n    if (appliedPromoCode && !isEditing) {\n      removePromoCode();\n    } else {\n      if (!promoCode) {\n        document.getElementById('promoErrorMsg').style.display = 'block';\n        return;\n      }\n      isEditing = false;\n      applyPromoCode(promoCode);\n    }\n  }\n\n  function applyPromoCode(code) {\n    clearPromoError();\n    fetch('/discount/' + code)\n    .then(() => fetch('/cart.js'))\n    .then(res => res.json())\n    .then(cart => {\n      let isValid = false;\n      const clean = (str) => str ? str.toString().toUpperCase().trim() : \"\";\n\n      if (cart.cart_level_discount_applications && cart.cart_level_discount_applications.length > 0) {\n          cart.cart_level_discount_applications.forEach(d => {\n              if(d.type === 'discount_code' && (clean(d.title) === code || clean(d.code) === code)) {\n                  isValid = true;\n              }\n          });\n      }\n\n      if (!isValid) {\n          cart.items.forEach(item => {\n              if (item.line_level_discount_allocations && item.line_level_discount_allocations.length > 0) {\n                  item.line_level_discount_allocations.forEach(alloc => {\n                      if (alloc.discount_application.type === 'discount_code' && \n                          (clean(alloc.discount_application.title) === code)) {\n                          isValid = true;\n                      }\n                  });\n              }\n          });\n      }\n\n      if (isValid) {\n          appliedPromoCode = code;\n          refreshCartWithPromo(cart);\n          document.getElementById('cartPromoInput').value = code;\n          const promoButton = document.getElementById('promoActionBtn');\n          promoButton.textContent = 'Remove';\n          promoButton.classList.add('remove-mode');\n          window.dispatchEvent(new CustomEvent('cart:updated'));\n      } else {\n          document.getElementById('promoErrorMsg').style.display = 'block';\n          removePromoCodeSilent();\n      }\n    }).catch(err => {\n      document.getElementById('promoErrorMsg').style.display = 'block';\n    });\n  }\n\n  async function removePromoCode() {\n    isEditing = true;\n    try {\n        await fetch('/discount/0?_=' + Date.now());\n        await fetch('/cart/update.js', {\n            method: 'POST',\n            headers: { 'Content-Type': 'application/json' },\n            body: JSON.stringify({ updates: {} })\n        });\n        appliedPromoCode = null;\n        document.getElementById('cartPromoInput').value = '';\n        const promoButton = document.getElementById('promoActionBtn');\n        promoButton.textContent = 'Apply';\n        promoButton.classList.remove('remove-mode');\n        clearPromoError();\n        refreshCart();\n        window.dispatchEvent(new CustomEvent('cart:updated'));\n    } catch(err) {\n        console.error('Remove promo error:', err);\n    } finally {\n        isEditing = false;\n    }\n  }\n\n  function removePromoCodeSilent() {\n      fetch('/discount/0');\n      appliedPromoCode = null;\n  }\n\n  function refreshCartWithPromo(cart) {\n    displayCart(cart);\n  }\n\n  /* --- CART DRAWER LOGIC --- */\n  function refreshCart() {\n    fetch('/cart.js?v=' + Date.now()).then(res => res.json()).then(cart => {\n      displayCart(cart);\n      toggleCart(true);\n    });\n  }\n\n  function displayCart(cart) {\n    document.getElementById('cartCount').innerText = cart.item_count + (cart.item_count === 1 ? ' item' : ' items');\n\n    let html = '';\n    let grandTotalSavings = 0;\n    let manualProductDiscountTotal = 0;\n    let manualCartDiscountTotal = 0;\n    let detectedManualCode = null;\n\n    if(cart.items.length === 0) {\n      html = '<p style=\"text-align:center; color:#999; padding:40px 20px;\">Your cart is empty.</p>';\n    } else {\n      cart.items.forEach(item => {\n        let manualLineDiscount = 0;\n        if (item.line_level_discount_allocations.length > 0) {\n            item.line_level_discount_allocations.forEach(discount => {\n                if (discount.discount_application.type === 'discount_code') {\n                    detectedManualCode = discount.discount_application.title;\n                    manualProductDiscountTotal += discount.amount;\n                    manualLineDiscount += discount.amount;\n                }\n            });\n        }\n\n        let originalPrice = item.original_price;\n        let finalPrice = item.final_price;\n        let visualLinePrice = item.line_price + manualLineDiscount;\n        let visualUnitPrice = visualLinePrice / item.quantity;\n        let marketPrice = null;\n\n        if(item.properties && item.properties['_market_price']) {\n            marketPrice = parseInt(item.properties['_market_price']) * 100;\n        }\n\n        let showStrike = false;\n        let strikePriceDisplay = '';\n        let lineSavings = 0;\n\n        if (marketPrice && marketPrice > visualUnitPrice) {\n            showStrike = true;\n            strikePriceDisplay = marketPrice;\n            lineSavings = (marketPrice - visualUnitPrice) * item.quantity;\n        } else if (originalPrice > visualUnitPrice) {\n            showStrike = true;\n            strikePriceDisplay = originalPrice;\n            lineSavings = (originalPrice - visualUnitPrice) * item.quantity;\n        }\n\n        grandTotalSavings += lineSavings;\n\n        let discountsHTML = '';\n        if (item.line_level_discount_allocations.length > 0) {\n          item.line_level_discount_allocations.forEach(discount => {\n            if (discount.discount_application.type !== 'discount_code') {\n               discountsHTML += `<div class=\"item-discount-name\">🏷️ ${discount.discount_application.title}</div>`;\n            }\n          });\n        }\n\n        html += `\n          <div class=\"drawer-item-row\">\n            <img src=\"${item.image}\" class=\"drawer-item-img\" alt=\"${item.product_title}\">\n            <div class=\"drawer-item-details\">\n              <p class=\"drawer-item-title\">${item.product_title}</p>\n              ${discountsHTML}\n              <div class=\"item-price-row\">\n                 <span class=\"drawer-item-price-unit\">₹${(visualUnitPrice/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>\n                 ${showStrike ? `<span class=\"drawer-item-price-strike\">₹${(strikePriceDisplay/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>` : ''}\n              </div>\n              <p class=\"drawer-item-duration\">Duration: ${item.variant_title || 'One-time'}</p>\n              <button class=\"drawer-trash-btn\" onclick=\"updateItem('${item.key}', 0)\" aria-label=\"Remove item\">🗑️</button>\n              <div class=\"drawer-qty-price-flex\">\n                <div class=\"drawer-qty-stepper\">\n                  <button onclick=\"updateItem('${item.key}', ${item.quantity - 1})\" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>\n                  <input value=\"${item.quantity}\" readonly>\n                  <button onclick=\"updateItem('${item.key}', ${item.quantity + 1})\">+</button>\n                </div>\n                <span class=\"drawer-line-total\">₹${(visualLinePrice/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>\n              </div>\n            </div>\n          </div>`;\n      });\n    }\n    document.getElementById('cartItems').innerHTML = html;\n\n    let promoContainer = document.getElementById('promoDiscountContainer');\n    let promoHTML = '';\n\n    if (cart.cart_level_discount_applications && cart.cart_level_discount_applications.length > 0) {\n      cart.cart_level_discount_applications.forEach(discount => {\n        if (discount.type === 'discount_code') {\n          manualCartDiscountTotal += discount.total_allocated_amount;\n          grandTotalSavings += discount.total_allocated_amount;\n          detectedManualCode = discount.title;\n        }\n      });\n    }\n\n    if (detectedManualCode && !isEditing) {\n        appliedPromoCode = detectedManualCode;\n        document.getElementById('cartPromoInput').value = detectedManualCode;\n        document.getElementById('promoActionBtn').textContent = 'Remove';\n        document.getElementById('promoActionBtn').classList.add('remove-mode');\n    } else if (!detectedManualCode) {\n        if (!appliedPromoCode && !isEditing) {\n             document.getElementById('promoActionBtn').textContent = 'Apply';\n             document.getElementById('promoActionBtn').classList.remove('remove-mode');\n        }\n    }\n\n    let totalManualDiscount = manualProductDiscountTotal + manualCartDiscountTotal;\n\n    if (totalManualDiscount > 0 && (appliedPromoCode || detectedManualCode)) {\n          let displayCode = appliedPromoCode || detectedManualCode;\n          promoHTML = `\n            <div class=\"footer-row promo-discount-row\">\n              <span>Additional discount: ${displayCode}</span>\n              <span>-₹${(totalManualDiscount/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>\n            </div>`;\n          promoContainer.innerHTML = promoHTML;\n          promoContainer.style.display = 'block';\n    } else {\n          promoContainer.style.display = 'none';\n    }\n\n    let displaySubtotal = cart.items_subtotal_price + manualProductDiscountTotal;\n    document.getElementById('subTotalDisplay').innerText = \"₹\" + (displaySubtotal / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});\n    document.getElementById('finalTotalDisplay').innerText = \"₹\" + (cart.total_price / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});\n\n    const savingsEl = document.getElementById('totalSavingsContainer');\n    if (grandTotalSavings > 0) {\n        document.getElementById('totalSavingsDisplay').innerText = \"-₹\" + (grandTotalSavings / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});\n        savingsEl.style.display = 'flex';\n    } else {\n        savingsEl.style.display = 'none';\n    }\n  }\n\n  function updateItem(key, qty) {\n    fetch('/cart/change.js', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ id: key, quantity: qty })\n    })\n    .then(res => {\n        if (!res.ok) throw new Error('Cart update failed');\n        return res.json();\n    })\n    .then(() => {\n        refreshCart();\n        window.dispatchEvent(new CustomEvent('cart:updated'));\n    })\n    .catch(err => {\n        console.error('Update item error:', err);\n    });\n  }\n\n  function toggleCart(open) { \n    document.getElementById('sideCart').classList.toggle('open', open); \n    if(!open) clearPromoError(); \n  }\n\n  function openModal() { \n    document.getElementById(\"imageModal\").style.display = \"block\"; \n    document.getElementById(\"img01\").src = document.getElementById('MainProductImg').src; \n  }\n\n  function closeModal() { \n    document.getElementById(\"imageModal\").style.display = \"none\"; \n  }\n\n  let slideshowStarted = false;\n  function initSlideshowOnInteraction() {\n      if(!slideshowStarted) {\n          slideshowStarted = true;\n          if (window.innerWidth > 768) {\n              startSlideshow();\n          }\n          document.removeEventListener('scroll', initSlideshowOnInteraction);\n          document.removeEventListener('touchstart', initSlideshowOnInteraction);\n      }\n  }\n  document.addEventListener('scroll', initSlideshowOnInteraction, {passive: true});\n  document.addEventListener('touchstart', initSlideshowOnInteraction, {passive: true});\n</script>\n\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org/\",\n  \"@type\": \"Product\",\n  \"name\": \"Semi - {{ product.title | escape }}\",\n  \"image\": \"{{ product.featured_image | img_url: 'master' }}\",\n  \"description\": \"{{ product.description | strip_html | escape }}\",\n  \"brand\": {\n    \"@type\": \"Brand\",\n    \"name\": \"Semi\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"url\": \"{{ shop.url }}{{ product.url }}\",\n    \"priceCurrency\": \"{{ cart.currency.iso_code }}\",\n    \"price\": \"{{ product.price | divided_by: 100.0 | round: 2 }}\",\n    \"availability\": \"{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}\"\n  }\n}\n</script>",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "product-information",
+    "custom_liquid_PmGyqP"
+  ]
+}
