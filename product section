@@ -1,0 +1,948 @@
+<div class="femi-product-master-wrapper">
+  <div class="product-main-container">
+    
+    <div class="femi-nav-header-row">
+      <nav class="femi-breadcrumbs" aria-label="breadcrumbs">
+        <a href="/">Home</a>
+        {% if collection.url %}
+          <span class="breadcrumb-sep">›</span>
+          <a href="{{ collection.url }}">{{ collection.title }}</a>
+        {% endif %}
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current" aria-current="page">{{ product.title }}</span>
+      </nav>
+
+      {% assign prev_url = nil %}
+      {% assign next_url = nil %}
+
+      {% if collection.previous_product or collection.next_product %}
+        {% if collection.previous_product %}{% assign prev_url = collection.previous_product.url %}{% endif %}
+        {% if collection.next_product %}{% assign next_url = collection.next_product.url %}{% endif %}
+      {% else %}
+        {% assign current_col = product.collections.first %}
+        {% if current_col %}
+          {% for prod in current_col.products limit: 1000 %}
+            {% if prod.handle == product.handle %}
+              {% assign prev_index = forloop.index0 | minus: 1 %}
+              {% assign next_index = forloop.index0 | plus: 1 %}
+              {% if prev_index >= 0 %}
+                {% assign prev_url = current_col.products[prev_index].url %}
+              {% endif %}
+              {% if next_index < current_col.products.size %}
+                {% assign next_url = current_col.products[next_index].url %}
+              {% endif %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      {% if prev_url or next_url %}
+        <div class="femi-product-prev-next">
+          {% if prev_url %}
+            <a href="{{ prev_url }}" class="nav-link">‹ PREVIOUS</a>
+          {% endif %}
+          {% if prev_url and next_url %}
+            <span class="nav-pipe">|</span>
+          {% endif %}
+          {% if next_url %}
+            <a href="{{ next_url }}" class="nav-link">NEXT ›</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-layout-flex">
+      
+      <div class="product-media-column">
+        <div class="product-image-frame">
+          <img 
+            srcset="{{ product.featured_image | img_url: '500x500' }} 500w,
+                    {{ product.featured_image | img_url: '750x750' }} 750w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src="{{ product.featured_image | img_url: '750x750' }}" 
+            id="MainProductImg" 
+            alt="{{ product.title }} - Ready-to-eat Seed Cycling Superfood by Semi" 
+            onclick="openModal()" 
+            style="cursor: zoom-in; aspect-ratio: 1/1; object-fit: cover;" 
+            width="750" 
+            height="750" 
+            fetchpriority="high" 
+            loading="eager"
+          >
+        </div>
+        <div class="thumbnail-scroller-container">
+          <div class="thumbnail-strip-single-row" id="ThumbStrip">
+            {% for image in product.images %}
+              <img src="{{ image.src | img_url: '200x200' }}" 
+                   class="thumb-item {% if forloop.first %}active-thumb{% endif %}" 
+                   onclick="setManualImage('{{ image.src | img_url: '750x750' }}', {{ forloop.index0 }})"
+                   width="100" height="100" loading="lazy" 
+                   alt="Thumbnail of {{ product.title }} packaging and seed cycling ingredients">
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="product-details-column">
+        <h1 class="product-main-title">{{ product.title }}</h1>
+        <div class="product-rating-line" style="margin-bottom: 20px;"></div>
+
+        <div class="product-description-text" style="margin-bottom: 30px;">
+          <p>India's first ready-to-eat daily superfood crafted to support every girl's & women's monthly hormonal balance, based on the concept of seed cycling.</p>
+        </div>
+
+        <div class="purchase-frequency-wrapper">
+          <label class="frequency-heading">Choose your frequency</label>
+          
+          <div class="frequency-option hover-zoom active" id="optionOneTime" onclick="toggleFrequency('one-time')">
+            <div class="freq-content-row">
+              <div class="freq-radio-cell">
+                <div class="freq-radio-outer"><div class="freq-radio-inner"></div></div>
+                <span class="freq-label">ONE-TIME PURCHASE:</span>
+              </div>
+              <div class="freq-price-cell">
+                <span class="freq-price">
+                  {% for variant in product.variants %}
+                    {% if variant.title contains 'One-time' %}
+                      {{ variant.price | money }}
+                      {% assign onetime_id = variant.id %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if onetime_id == nil %}{{ product.price | money }}{% assign onetime_id = product.variants.first.id %}{% endif %}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="frequency-option hover-zoom subscribe-box" id="optionSubscribe" onclick="toggleFrequency('subscribe')">
+            <div class="subscribe-top-row">
+              <div class="freq-radio-cell">
+                <div class="freq-radio-outer"><div class="freq-radio-inner"></div></div>
+                <span class="freq-label">SUBSCRIBE & SAVE</span>
+              </div>
+              <div class="freq-price-cell">
+                <span class="old-price" id="OldPriceDisplay"></span>
+                <span class="freq-price highlight" id="SubPriceDisplay"></span>
+              </div>
+            </div>
+
+            <div id="subscriptionDetails" class="subscribe-internal-content">
+              <div class="delivery-dropdown-wrap">
+                <select id="deliveryInterval" class="femi-select" onchange="updateSubscriptionPrice()" aria-label="Delivery Interval">
+                  {% for variant in product.variants %}
+                    {% assign v_title = variant.title | downcase %}
+                    {% unless v_title contains 'one-time' %}
+                      {% if v_title contains '3 month' %}{% assign strike = "5998" %}{% assign sel = "selected" %}
+                      {% elsif v_title contains '6 month' %}{% assign strike = "11994" %}{% assign sel = "" %}
+                      {% elsif v_title contains '12 month' %}{% assign strike = "23988" %}{% assign sel = "" %}
+                      {% else %}{% assign strike = "0" %}{% assign sel = "" %}{% endif %}
+                      <option value="{{ variant.id }}" data-price="{{ variant.price | divided_by: 100.0 }}" data-old-price="{{ strike }}" {{ sel }}>{{ variant.title }}</option>
+                    {% endunless %}
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="benefit-grid">
+                <div class="benefit-item"><img src="https://cdn.shopify.com/s/files/1/0809/8643/9915/files/timely_delivery.webp?v=1770886381" class="benefit-icon" width="20" height="20" loading="lazy" alt="" aria-hidden="true"><span>Timely, hassle-free deliveries</span></div>
+                <div class="benefit-item"><img src="https://cdn.shopify.com/s/files/1/0809/8643/9915/files/save_more.webp?v=1770886381" class="benefit-icon" width="20" height="20" loading="lazy" alt="" aria-hidden="true"><span>Save more every order</span></div>
+                <div class="benefit-item"><img src="https://cdn.shopify.com/s/files/1/0809/8643/9915/files/free_gift.webp?v=1770886382" class="benefit-icon" width="20" height="20" loading="lazy" alt="" aria-hidden="true"><span>Free Gift on second delivery</span></div>
+                <div class="benefit-item"><img src="https://cdn.shopify.com/s/files/1/0809/8643/9915/files/pause_anytime.webp?v=1770886381" class="benefit-icon" width="20" height="20" loading="lazy" alt="" aria-hidden="true"><span>Pause anytime</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="purchase-actions-row">
+          <div class="qty-selector-container">
+            <span class="qty-label">QTY</span>
+            <div class="qty-stepper-align">
+              <button type="button" class="qty-btn" onclick="adjustQty(-1)" aria-label="Decrease quantity">‹</button>
+              <input type="number" id="FinalQty" value="1" min="1" readonly aria-label="Quantity">
+              <button type="button" class="qty-btn" onclick="adjustQty(1)" aria-label="Increase quantity">›</button>
+            </div>
+          </div>
+          <button type="button" class="femi-btn hover-zoom btn-cart-main" onclick="handleAddToCart(false)">ADD TO CART</button>
+        </div>
+        <button type="button" class="femi-btn hover-zoom btn-buy-now" onclick="handleAddToCart(true)">BUY NOW</button>
+
+        <form action="/cart" method="post" novalidate class="cart-form" id="GhostCheckoutForm" style="height:0; width:0; visibility:hidden; overflow:hidden; position:absolute;">
+           <button type="submit" name="checkout" id="GhostCheckoutBtn">Checkout</button>
+        </form>
+
+        <div class="product-description-text" style="margin-top: 30px;">
+          <h2 style="font-size: 16px; margin-bottom: 10px;">A natural approach to hormonal balance by:</h2>
+          <ul style="margin: 10px 0; padding-left: 20px;">
+            <li>Supporting regular periods</li><li>Reducing menstrual cramps</li>
+            <li>Easing PMS symptoms and mood swings</li>
+            <li>Balancing hormones for PCOD & PCOS</li>
+            <li>Reducing inflammation and hormonal acne</li>
+            <li>Enhancing fertility health</li>
+            <li>Easing perimenopause & menopause transitions</li>
+            <li>Reducing hot flashes and boosting energy levels</li>
+          </ul>
+        </div>
+        <div class="product-meta-tags" style="margin: 10px 0;"><strong>PLANT-BASED&nbsp;&nbsp;|&nbsp;&nbsp;DAIRY-FREE&nbsp;&nbsp;|&nbsp;&nbsp;CLEAN-LABEL&nbsp;&nbsp;|&nbsp;&nbsp;NO ADDED SUGAR</strong></div>
+
+        <div class="product-details-accordions">
+          <details class="acc-detail-item">
+            <summary>SUBSCRIPTION <span class="acc-icon"></span></summary>
+            <div class="acc-inner-text">
+              <p><strong>3 months</strong> → 3 deliveries (📅 every 28 days) • <strong>Save ₹500</strong></p>
+              <p><strong>6 months</strong> → 6 deliveries (📅 every 28 days) • <strong>Save ₹1060</strong></p>
+              <p><strong>12 months</strong> → 12 deliveries (📅 every 28 days) • <strong>Save ₹3000 (Best Deal)</strong></p>
+            </div>
+          </details>
+          <details class="acc-detail-item">
+            <summary>WHEN TO EAT? <span class="acc-icon"></span></summary>
+            <div class="acc-inner-text">
+              <p><strong>Purple Semi:</strong> Eat 1 Semi everyday from Day 1 to Day 14 of your cycle (starting from the first day of your period).</p>
+              <p><strong>Pink Semi:</strong> Eat 1 Semi everyday from Day 15 to Day 28.</p>
+              <br>
+              <p><strong>MISSED STARTING ON DAY 1?</strong></p>
+              <p>No worries! You can start on any day of your cycle. pick the right Semi based on that:</p>
+              <ul style="margin: 10px 0; padding-left: 20px;">
+                <li>If you're between Day 1–14, start with <strong>Purple Semi</strong></li>
+                <li>If you're between Day 15–28, start with <strong>Pink Semi</strong></li>
+              </ul>
+              <br>
+              <p><strong>IRREGULAR PERIODS?</strong> Let the moon lead the way!</p>
+              <p><strong>Purple Semi:</strong> Eat 1 Semi from New Moon to Full Moon.</p>
+              <p><strong>Pink Semi:</strong> Eat 1 Semi from Full Moon to New Moon.</p>
+            </div>
+          </details>
+          <details class="acc-detail-item">
+            <summary>CONTENTS OF MONTHLY PACK <span class="acc-icon"></span></summary>
+            <div class="acc-inner-text">
+              <p><strong>What Each Kit Contains?</strong></p>
+              <ul style="margin: 10px 0; padding-left: 20px;">
+                <li><strong>2 boxes</strong> — 1 Purple Box + 1 Pink Box</li>
+                <li>Each box contains 14 Semis for you + 1 extra Semi to share</li>
+                <li><strong>Total:</strong> 28 daily Semis + 2 bonus Semis (30 in all)</li>
+              </ul>
+              <br>
+              <p><strong>Why Two Boxes?</strong></p>
+              <p>Because each box is crafted for a different phase of your monthly cycle:</p>
+              <ul style="margin: 10px 0; padding-left: 20px;">
+                <li><strong>Purple Semis</strong> (Pumpkin seeds + Flaxseeds) → For Phase 1 (Day 1 to 14)</li>
+                <li><strong>Pink Semis</strong> (Sunflower seeds + Sesame) → For Phase 2 (Day 15 to 28)</li>
+              </ul>
+            </div>
+          </details>
+          <details class="acc-detail-item">
+            <summary>INGREDIENTS <span class="acc-icon"></span></summary>
+            <div class="acc-inner-text">
+              <p><strong>Purple Semi:</strong> Dates(35%), Pumpkin seeds (25%), Flaxseeds (25%), Oat extract (9%), Gond Katira (2%), Cocoa powder (2%), Cinnamon, Pink Salt</p>
+              <p><strong>Pink Semi:</strong> Dates(35%), Sunflower seeds (25%), Sesame (25%), Oat extract (9%), Gond Katira (2%), Cocoa powder (2%), Cinnamon, Pink Salt</p>
+              <p>And loads of love and light...</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sideCart" class="femi-cart-drawer">
+  <div class="cart-drawer-header">
+    <span class="cart-title">Cart (<span id="cartCount">0 items</span>)</span>
+    <span class="close-cart" onclick="toggleCart(false)">&times;</span>
+  </div>
+  
+  <div class="cart-drawer-content" id="cartItems">
+    </div>
+  
+  <div class="cart-drawer-footer-section">
+    <div class="cart-promo-section">
+      <div class="promo-text-line">
+        <span class="promo-icon">🏷️</span>
+        <span>Enter a promo code</span>
+      </div>
+      <div class="promo-input-row">
+        <input type="text" id="cartPromoInput" placeholder="Enter code" oninput="clearPromoError()">
+        <button class="promo-apply-btn" id="promoActionBtn" onclick="handlePromoCode()">Apply</button>
+      </div>
+      <p id="promoErrorMsg" class="promo-error-text" style="display:none;">Invalid Code</p>
+    </div>
+    
+    <div class="cart-totals-section">
+      <div class="footer-row">
+        <span>Subtotal</span>
+        <span id="subTotalDisplay">₹0.00</span>
+      </div>
+      
+      <div id="promoDiscountContainer" style="display: none;"></div>
+
+      <div class="footer-row estimated-total">
+        <span>Estimated total</span>
+        <span id="finalTotalDisplay">₹0.00</span>
+      </div>
+
+      <div class="footer-row savings-row" id="totalSavingsContainer" style="display:none;">
+        <span>Total Savings</span>
+        <span id="totalSavingsDisplay">₹0.00</span>
+      </div>
+    </div>
+    
+    <div class="cart-action-buttons">
+      <button class="side-btn btn-blue" onclick="triggerMagicCheckout()">Checkout</button>
+      <button class="side-btn btn-blue-outline" onclick="window.location.href='/cart'">View Cart</button>
+    </div>
+  </div>
+</div>
+
+<div id="imageModal" class="femi-modal">
+  <span class="close-modal" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01" alt="Product zoomed view">
+</div>
+
+<style>
+  /* --- DESKTOP STYLES --- */
+  .femi-product-master-wrapper { padding: 140px 5% 60px 5%; background: #ffffff; color: #162150; }
+  .product-main-container { max-width: 1400px; margin: 0 auto; }
+  .femi-nav-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+  .femi-breadcrumbs { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .femi-breadcrumbs a { text-decoration: none; color: #162150; opacity: 0.6; }
+  .breadcrumb-sep { margin: 0 10px; opacity: 0.4; }
+  .femi-product-prev-next { font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+  .nav-link { text-decoration: none; color: #162150; opacity: 0.6; }
+  .nav-pipe { margin: 0 10px; opacity: 0.2; }
+
+  .product-layout-flex { display: flex; gap: 60px; align-items: flex-start; }
+  .product-media-column, .product-details-column { width: 50%; flex: 1 1 50%; }
+  
+  /* Image Transition */
+  .product-image-frame { border-radius: 40px; border: 2px solid #162150; margin-bottom: 25px; overflow: hidden; position: relative; }
+  .product-image-frame img { width: 100%; height: auto; display: block; transition: opacity 0.4s ease-in-out; }
+  
+  /* Scrollbar Logic */
+  .thumbnail-scroller-container { width: 100%; overflow: hidden; } 
+  .thumbnail-strip-single-row { 
+    display: flex; gap: 15px; overflow-x: auto; white-space: nowrap; padding-bottom: 5px; 
+    scrollbar-width: thin; scrollbar-color: transparent transparent; transition: scrollbar-color 0.3s;
+  }
+  .thumbnail-scroller-container:hover .thumbnail-strip-single-row { scrollbar-color: #162150 #eee; }
+  .thumbnail-strip-single-row::-webkit-scrollbar { height: 6px; background: transparent; }
+  .thumbnail-strip-single-row::-webkit-scrollbar-thumb { background: transparent; border-radius: 10px; }
+  .thumbnail-scroller-container:hover .thumbnail-strip-single-row::-webkit-scrollbar-thumb { background: #162150; }
+  .thumbnail-scroller-container:hover .thumbnail-strip-single-row::-webkit-scrollbar-track { background: #eee; border-radius: 10px; }
+
+  .thumb-item { flex: 0 0 100px; height: 100px; border-radius: 15px; border: 2px solid #eee; cursor: pointer; object-fit: cover; transition: all 0.2s; }
+  .thumb-item.active-thumb { border-color: #162150; transform: scale(1.05); }
+  .hover-zoom { transition: transform 0.2s ease; }
+  .hover-zoom:hover { transform: scale(1.02); }
+
+  /* Modal Styles */
+  .femi-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
+  .modal-content { margin: auto; display: block; width: auto; max-width: 90%; max-height: 90vh; border-radius: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+  .close-modal { position: absolute; top: 20px; right: 30px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 100000; line-height: 1; background: rgba(0, 0, 0, 0.5); width: 50px; height: 50px; border-radius: 50%; text-align: center; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+  .close-modal:hover { background: rgba(0, 0, 0, 0.8); color: #bbb; }
+
+  /* Purchase Options Layout */
+  .frequency-option { border: 2px solid #162150; background: #ffbc42; border-radius: 30px; padding: 20px; margin-bottom: 15px; cursor: pointer; }
+  .frequency-option.active { background: #ffbc42; box-shadow: 0 5px 15px rgba(22,33,80,0.1); }
+  .freq-content-row, .subscribe-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+  .freq-radio-cell { display: flex; align-items: center; gap: 12px; }
+  .freq-radio-outer { width: 24px; height: 24px; border: 2px solid #162150; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .freq-radio-inner { width: 12px; height: 12px; background: transparent; border-radius: 50%; }
+  .frequency-option.active .freq-radio-inner { background: #162150; }
+  .old-price { font-size: 16px; text-decoration: line-through; opacity: 0.6; margin-right: 8px; color: #162150; }
+  .highlight { font-weight: 700; color: #162150; font-size: 20px; }
+
+  /* Benefit Grid & Select */
+  .subscribe-internal-content { display: block; margin-top: 20px; border-top: 1px solid #fff; padding-top: 20px; }
+  .benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+  .benefit-item { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; }
+  .benefit-icon { width: 20px; height: 20px; }
+  .femi-select { width: 100%; padding: 8px 15px; border-radius: 40px; border: 1.5px solid #162150; font-size: 13px; color: #162150 !important; background: #fff; }
+
+  /* QTY & Actions */
+  .purchase-actions-row { display: flex; border-radius: 50px; border: 2.2px solid #162150; margin-top: 30px; overflow: hidden; align-items: stretch; }
+  .qty-selector-container { flex: 1; display: flex; align-items: center; padding: 0 20px; border-right: 2.2px solid #162150; background: #fff; }
+  .qty-label { font-size: 11px; font-weight: 800; margin-right: 15px; }
+  .qty-stepper-align { display: flex; align-items: center; gap: 10px; }
+  .qty-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: #162150; }
+  .qty-stepper-align input { border: none; width: 40px; text-align: center; font-size: 18px; font-weight: 700; color: #162150; background: transparent; }
+  .btn-cart-main, .btn-buy-now { border: none; font-weight: 700; font-family: inherit; cursor: pointer; }
+  .btn-cart-main { flex: 1.5; background: #162150; color: #fff; padding: 22px; font-size: 18px; }
+  .btn-buy-now { width: 100%; margin-top: 15px; padding: 20px; border-radius: 50px; background: #FFBC42; color: #162150; font-size: 18px; }
+
+  /* Accordion */
+  .acc-detail-item { border-bottom: 1px solid #eee; }
+  .acc-detail-item summary { padding: 20px 0; font-size: 14px; font-weight: 800; color: #162150; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .acc-icon::before { content: "+"; font-size: 20px; }
+  .acc-detail-item[open] .acc-icon::before { content: "−"; }
+  .acc-inner-text { padding-bottom: 25px; }
+
+  /* --- SIDE CART STYLES --- */
+  .femi-cart-drawer { position: fixed; right: -420px; top: 0; width: 420px; height: 100%; background: #fff; z-index: 10000; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+  .femi-cart-drawer.open { right: 0; }
+  .cart-drawer-header { background: #162150; color: #fff; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+  .cart-title { font-weight: 700; font-size: 18px; }
+  .close-cart { font-size: 32px; cursor: pointer; line-height: 1; font-weight: 300; }
+  .cart-drawer-content { flex: 1; overflow-y: auto; padding: 20px 25px; border-bottom: 1px solid #eee; }
+  .drawer-item-row { display: flex; gap: 15px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #f0f0f0; }
+  .drawer-item-row:last-child { border-bottom: none; }
+  .drawer-item-img { width: 80px; height: 80px; object-fit: cover; border-radius: 12px; border: 1px solid #eee; flex-shrink: 0; }
+  .drawer-item-details { flex: 1; display: flex; flex-direction: column; gap: 4px; position: relative; }
+  .drawer-item-title { font-weight: 700; font-size: 14px; color: #162150; margin: 0; padding-right: 30px; line-height: 1.3; }
+  
+  /* Discount & Price Styles */
+  .item-discount-name { font-size: 11px; background: #FFBC42; padding: 2px 6px; border-radius: 4px; color: #162150; width: fit-content; font-weight: 700; margin-bottom: 2px; }
+  .item-price-row { display: flex; align-items: center; gap: 8px; }
+  .drawer-item-price-unit { font-weight: 600; font-size: 14px; color: #162150; margin: 0; }
+  .drawer-item-price-strike { font-size: 13px; text-decoration: line-through; opacity: 0.5; color: #162150; }
+  
+  .drawer-trash-btn { position: absolute; top: 0; right: 0; background: none; border: none; cursor: pointer; font-size: 18px; color: #999; padding: 0; }
+  .drawer-trash-btn:hover { color: #ff4444; }
+  .drawer-item-duration { font-size: 12px; color: #666; margin: 0; }
+  .drawer-qty-price-flex { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .drawer-qty-stepper { display: flex; align-items: center; border: 1.5px solid #162150; border-radius: 8px; height: 32px; overflow: hidden; }
+  .drawer-qty-stepper button { width: 32px; height: 100%; border: none; background: #fff; cursor: pointer; font-size: 18px; font-weight: 700; color: #162150; display: flex; align-items: center; justify-content: center; }
+  .drawer-qty-stepper button:hover { background: #f5f5f5; }
+  .drawer-qty-stepper button:disabled { opacity: 0.3; cursor: not-allowed; }
+  .drawer-qty-stepper input { width: 40px; text-align: center; border: none; font-weight: 700; background: #fff; pointer-events: none; font-size: 14px; color: #162150; }
+  .drawer-line-total { font-weight: 700; font-size: 16px; color: #162150; }
+
+  /* Footer Section */
+  .cart-drawer-footer-section { flex-shrink: 0; background: #fff; }
+  .cart-promo-section { padding: 20px 25px; border-top: 1px solid #eee; }
+  .promo-text-line { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #162150; }
+  .promo-icon { font-size: 18px; }
+  .promo-input-row { display: flex; border: 1.5px solid #ddd; border-radius: 12px; overflow: hidden; }
+  .promo-input-row input { flex: 1; padding: 12px 15px; border: none; outline: none; font-size: 14px; color: #162150; }
+  
+  .promo-error-text { color: #dc2626; font-size: 12px; font-weight: 600; margin-top: 8px; margin-bottom: 0; }
+
+  .promo-apply-btn { background: #0869D9; color: #fff; border: none; padding: 0 20px; font-weight: 700; cursor: pointer; font-size: 13px; white-space: nowrap; transition: background 0.2s; }
+  .promo-apply-btn:hover { background: #0654b3; }
+  .promo-apply-btn.remove-mode { background: #dc2626; }
+  .promo-apply-btn.remove-mode:hover { background: #b91c1c; }
+
+  /* Totals Section */
+  .cart-totals-section { padding: 20px 25px; border-top: 1px solid #eee; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 14px; color: #162150; }
+  .footer-row:last-child { margin-bottom: 0; }
+  .promo-discount-row { color: #0869D9; font-weight: 600; }
+  .estimated-total { font-weight: 700; font-size: 18px; color: #162150; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; }
+  
+  /* Savings Row Style */
+  .savings-row { color: #16a34a; font-weight: 800; font-size: 15px; margin-top: 10px; border-top: 1px dashed #eee; padding-top: 10px; }
+
+  .cart-action-buttons { padding: 20px 25px; display: flex; flex-direction: column; gap: 12px; }
+  .side-btn { width: 100%; padding: 16px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+  .btn-blue { background: #0869D9; color: #fff; border: none; }
+  .btn-blue:hover { background: #0654b3; transform: translateY(-2px); }
+  .btn-blue-outline { background: transparent; color: #0869D9; border: 2px solid #0869D9; }
+  .btn-blue-outline:hover { background: #0869D9; color: #fff; }
+
+  /* --- 📱 MOBILE ADJUSTMENTS --- */
+  @media (max-width: 768px) {
+    /* Fix overlapping breadcrumbs */
+    .femi-nav-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    .femi-product-master-wrapper { padding: 130px 5% 40px 5%; }
+    .product-layout-flex { flex-direction: column; gap: 30px; }
+    .product-media-column, .product-details-column { width: 100%; }
+    .femi-cart-drawer { width: 90%; right: -90%; }
+    .drawer-item-img { width: 70px; height: 70px; }
+    .drawer-item-title { font-size: 13px; }
+    .drawer-qty-stepper { height: 28px; }
+    .drawer-qty-stepper button { width: 28px; }
+  }
+</style>
+
+<script>
+  let activeMode = 'one-time';
+  let appliedPromoCode = null;
+  // FLAG: Controls if the UI is allowed to overwrite the input with the stuck code
+  let isEditing = false; 
+
+  /* --- SLIDESHOW VARIABLES --- */
+  let slideIndex = 0;
+  let slideInterval;
+  let resumeTimeout;
+  const SLIDE_DURATION = 3500;
+  const PAUSE_DURATION = 6000;
+
+  document.addEventListener("DOMContentLoaded", function() {
+      updateSubscriptionPrice();
+      
+      document.getElementById('imageModal').addEventListener('click', function(e) {
+          if (e.target === this) closeModal();
+      });
+
+      // Accordion Logic: Close other accordions when one is opened
+      const accordions = document.querySelectorAll('.acc-detail-item');
+      accordions.forEach(acc => {
+        acc.querySelector('summary').addEventListener('click', function(e) {
+          accordions.forEach(other => {
+            if (other !== acc) {
+              other.removeAttribute('open');
+            }
+          });
+        });
+      });
+  });
+
+  /* --- SLIDESHOW LOGIC --- */
+  function startSlideshow() {
+    // Prevent automatic slideshow from running on mobile devices (screens 768px or smaller)
+    if (window.innerWidth <= 768) return; 
+    
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => { nextImage(); }, SLIDE_DURATION);
+  }
+
+  function nextImage() {
+    const thumbs = document.querySelectorAll('.thumb-item');
+    if(thumbs.length === 0) return;
+    slideIndex++;
+    if (slideIndex >= thumbs.length) slideIndex = 0;
+    updateMainDisplay(thumbs[slideIndex].src, slideIndex);
+  }
+
+  function updateMainDisplay(src, index) {
+      const mainImg = document.getElementById('MainProductImg');
+      const highRes = src.replace('200x200', '750x750');
+      mainImg.style.opacity = '0.7';
+      setTimeout(() => {
+          mainImg.src = highRes;
+          mainImg.style.opacity = '1';
+      }, 150);
+      const thumbs = document.querySelectorAll('.thumb-item');
+      thumbs.forEach(t => t.classList.remove('active-thumb'));
+      if(thumbs[index]) thumbs[index].classList.add('active-thumb');
+      const thumbStrip = document.getElementById('ThumbStrip');
+      if(thumbs[index]) {
+          const scrollLeft = thumbs[index].offsetLeft - (thumbStrip.clientWidth / 2) + (thumbs[index].clientWidth / 2);
+          thumbStrip.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+  }
+
+  function setManualImage(src, index) {
+      clearInterval(slideInterval);
+      clearTimeout(resumeTimeout);
+      slideIndex = index;
+      updateMainDisplay(src, index);
+      
+      // Only resume the automatic slideshow on desktop
+      if (window.innerWidth > 768) {
+        resumeTimeout = setTimeout(() => { startSlideshow(); }, PAUSE_DURATION);
+      }
+  }
+
+  /* --- PRODUCT & CART LOGIC --- */
+  function updateSubscriptionPrice() {
+    const dropdown = document.getElementById('deliveryInterval');
+    if(!dropdown) return;
+    const sel = dropdown.options[dropdown.selectedIndex];
+    document.getElementById('SubPriceDisplay').innerText = "Rs. " + parseFloat(sel.getAttribute('data-price')).toLocaleString('en-IN') + ".00";
+    document.getElementById('OldPriceDisplay').innerText = "Rs. " + parseFloat(sel.getAttribute('data-old-price')).toLocaleString('en-IN') + ".00";
+  }
+
+  function toggleFrequency(type) {
+    activeMode = type;
+    document.getElementById('optionOneTime').classList.toggle('active', type === 'one-time');
+    document.getElementById('optionSubscribe').classList.toggle('active', type === 'subscribe');
+  }
+
+  function adjustQty(val) {
+    let input = document.getElementById('FinalQty');
+    let newVal = parseInt(input.value) + val;
+    if (newVal >= 1) input.value = newVal;
+  }
+
+  function handleAddToCart(isBuyNow) {
+    let variantId;
+    let properties = {};
+    let qty = document.getElementById('FinalQty').value;
+
+    if (activeMode === 'one-time') {
+        variantId = "{{ onetime_id }}";
+    } else {
+        const dropdown = document.getElementById('deliveryInterval');
+        variantId = dropdown.value;
+        const sel = dropdown.options[dropdown.selectedIndex];
+        const oldPriceVal = sel.getAttribute('data-old-price'); 
+        if(oldPriceVal && oldPriceVal !== "0") {
+            properties['_market_price'] = oldPriceVal; 
+        }
+    }
+
+    const payload = {
+      'items': [{
+        'id': variantId, 
+        'quantity': qty,
+        'properties': properties 
+      }]
+    };
+
+    // UI Feedback for processing
+    const buyBtn = document.querySelector('.btn-buy-now');
+    const originalText = buyBtn.innerText;
+    if(isBuyNow) {
+        buyBtn.innerText = "Processing...";
+        buyBtn.style.opacity = "0.7";
+        buyBtn.style.pointerEvents = "none";
+    }
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (response.ok) {
+            if (isBuyNow) {
+                // OPTIMIZATION: Broadcast standard cart update events so third-party apps know the cart changed
+                window.dispatchEvent(new CustomEvent('cart:updated'));
+                
+                // FIX: Magic Checkout Sync Delay. Give Razorpay servers 1 second to register the new cart data 
+                // before opening the popup. This stops the "Login Failed" and Shopify checkout fallback loop.
+                setTimeout(() => {
+                    buyBtn.innerText = originalText;
+                    buyBtn.style.opacity = "1";
+                    buyBtn.style.pointerEvents = "auto";
+                    triggerMagicCheckout();
+                }, 1000);
+
+            } else {
+                refreshCart();
+            }
+        } else {
+            console.error("Error adding to cart");
+            if(isBuyNow) {
+                buyBtn.innerText = originalText;
+                buyBtn.style.opacity = "1";
+                buyBtn.style.pointerEvents = "auto";
+            }
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+  }
+
+  /* --- NEW HELPER FOR SIDE CART CHECKOUT --- */
+  function triggerMagicCheckout() {
+      // Force trigger native Shopify events just in case Magic Checkout is listening
+      window.dispatchEvent(new Event('cart:refresh'));
+      
+      const ghostBtn = document.getElementById('GhostCheckoutBtn');
+      if (ghostBtn) {
+          ghostBtn.click();
+      } else {
+          window.location.href = '/checkout';
+      }
+  }
+
+  /* --- PROMO CODE LOGIC --- */
+  function clearPromoError() {
+      document.getElementById('promoErrorMsg').style.display = 'none';
+  }
+
+  function handlePromoCode() {
+    const promoInput = document.getElementById('cartPromoInput');
+    const promoCode = promoInput.value.trim().toUpperCase();
+    
+    if (appliedPromoCode && !isEditing) {
+      removePromoCode();
+    } else {
+      if (!promoCode) {
+        document.getElementById('promoErrorMsg').style.display = 'block';
+        return;
+      }
+      isEditing = false; 
+      applyPromoCode(promoCode);
+    }
+  }
+
+  function applyPromoCode(code) {
+    clearPromoError();
+    fetch('/discount/' + code + '?redirect=/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      let isValid = false;
+      const clean = (str) => str ? str.toString().toUpperCase().trim() : "";
+
+      if (cart.cart_level_discount_applications && cart.cart_level_discount_applications.length > 0) {
+          cart.cart_level_discount_applications.forEach(d => {
+              if(d.type === 'discount_code' && (clean(d.title) === code || clean(d.code) === code)) {
+                  isValid = true;
+              }
+          });
+      }
+      
+      if (!isValid) {
+          cart.items.forEach(item => {
+              if (item.line_level_discount_allocations && item.line_level_discount_allocations.length > 0) {
+                  item.line_level_discount_allocations.forEach(alloc => {
+                      if (alloc.discount_application.type === 'discount_code' && 
+                          (clean(alloc.discount_application.title) === code)) {
+                          isValid = true;
+                      }
+                  });
+              }
+          });
+      }
+
+      if (isValid) {
+          appliedPromoCode = code;
+          refreshCartWithPromo(cart);
+          document.getElementById('cartPromoInput').value = code;
+          const promoButton = document.getElementById('promoActionBtn');
+          promoButton.textContent = 'Remove';
+          promoButton.classList.add('remove-mode');
+          // Force Razorpay to know a promo was applied
+          window.dispatchEvent(new CustomEvent('cart:updated'));
+      } else {
+          document.getElementById('promoErrorMsg').style.display = 'block';
+          removePromoCodeSilent(); 
+      }
+    }).catch(err => {
+      document.getElementById('promoErrorMsg').style.display = 'block';
+    });
+  }
+
+  function removePromoCode() {
+    isEditing = true; 
+    fetch('/discount/0?_=' + Date.now())
+    .then(() => new Promise(resolve => setTimeout(resolve, 500)))
+    .then(() => fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ updates: {} }) 
+        })
+    )
+    .then(() => {
+        appliedPromoCode = null;
+        document.getElementById('cartPromoInput').value = '';
+        const promoButton = document.getElementById('promoActionBtn');
+        promoButton.textContent = 'Apply';
+        promoButton.classList.remove('remove-mode');
+        clearPromoError();
+        refreshCart();
+        window.dispatchEvent(new CustomEvent('cart:updated'));
+    });
+  }
+  
+  function removePromoCodeSilent() {
+      fetch('/discount/0'); 
+      appliedPromoCode = null;
+  }
+
+  function refreshCartWithPromo(cart) {
+    displayCart(cart);
+  }
+
+  /* --- CART DRAWER LOGIC --- */
+  function refreshCart() {
+    fetch('/cart.js?v=' + Date.now()).then(res => res.json()).then(cart => {
+      displayCart(cart);
+      toggleCart(true);
+    });
+  }
+
+  function displayCart(cart) {
+    document.getElementById('cartCount').innerText = cart.item_count + (cart.item_count === 1 ? ' item' : ' items');
+    
+    let html = '';
+    let grandTotalSavings = 0;
+    let manualProductDiscountTotal = 0; 
+    let manualCartDiscountTotal = 0;
+    let detectedManualCode = null;
+
+    if(cart.items.length === 0) {
+      html = '<p style="text-align:center; color:#999; padding:40px 20px;">Your cart is empty.</p>';
+    } else {
+      cart.items.forEach(item => {
+        let manualLineDiscount = 0;
+        if (item.line_level_discount_allocations.length > 0) {
+            item.line_level_discount_allocations.forEach(discount => {
+                if (discount.discount_application.type === 'discount_code') {
+                    detectedManualCode = discount.discount_application.title;
+                    manualProductDiscountTotal += discount.amount;
+                    manualLineDiscount += discount.amount;
+                }
+            });
+        }
+
+        let originalPrice = item.original_price; 
+        let finalPrice = item.final_price; 
+        let visualLinePrice = item.line_price + manualLineDiscount; 
+        let visualUnitPrice = visualLinePrice / item.quantity;
+        let marketPrice = null;                  
+        
+        if(item.properties && item.properties['_market_price']) {
+            marketPrice = parseInt(item.properties['_market_price']) * 100;
+        }
+
+        let showStrike = false;
+        let strikePriceDisplay = '';
+        let lineSavings = 0;
+
+        if (marketPrice && marketPrice > visualUnitPrice) {
+            showStrike = true;
+            strikePriceDisplay = marketPrice;
+            lineSavings = (marketPrice - visualUnitPrice) * item.quantity;
+        } else if (originalPrice > visualUnitPrice) {
+            showStrike = true;
+            strikePriceDisplay = originalPrice;
+            lineSavings = (originalPrice - visualUnitPrice) * item.quantity;
+        }
+
+        grandTotalSavings += lineSavings;
+
+        let discountsHTML = '';
+        if (item.line_level_discount_allocations.length > 0) {
+          item.line_level_discount_allocations.forEach(discount => {
+            if (discount.discount_application.type !== 'discount_code') {
+               discountsHTML += `<div class="item-discount-name">🏷️ ${discount.discount_application.title}</div>`;
+            }
+          });
+        }
+        
+        html += `
+          <div class="drawer-item-row">
+            <img src="${item.image}" class="drawer-item-img" alt="${item.product_title}">
+            <div class="drawer-item-details">
+              <p class="drawer-item-title">${item.product_title}</p>
+              ${discountsHTML}
+              <div class="item-price-row">
+                 <span class="drawer-item-price-unit">₹${(visualUnitPrice/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+                 ${showStrike ? `<span class="drawer-item-price-strike">₹${(strikePriceDisplay/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>` : ''}
+              </div>
+              <p class="drawer-item-duration">Duration: ${item.variant_title || 'One-time'}</p>
+              <button class="drawer-trash-btn" onclick="updateItem('${item.key}', 0)" aria-label="Remove item">🗑️</button>
+              <div class="drawer-qty-price-flex">
+                <div class="drawer-qty-stepper">
+                  <button onclick="updateItem('${item.key}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                  <input value="${item.quantity}" readonly>
+                  <button onclick="updateItem('${item.key}', ${item.quantity + 1})">+</button>
+                </div>
+                <span class="drawer-line-total">₹${(visualLinePrice/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+    document.getElementById('cartItems').innerHTML = html;
+    
+    let promoContainer = document.getElementById('promoDiscountContainer');
+    let promoHTML = '';
+    
+    if (cart.cart_level_discount_applications && cart.cart_level_discount_applications.length > 0) {
+      cart.cart_level_discount_applications.forEach(discount => {
+        if (discount.type === 'discount_code') {
+          manualCartDiscountTotal += discount.total_allocated_amount;
+          grandTotalSavings += discount.total_allocated_amount; 
+          detectedManualCode = discount.title; 
+        }
+      });
+    }
+    
+    if (detectedManualCode && !isEditing) {
+        appliedPromoCode = detectedManualCode; 
+        document.getElementById('cartPromoInput').value = detectedManualCode;
+        document.getElementById('promoActionBtn').textContent = 'Remove';
+        document.getElementById('promoActionBtn').classList.add('remove-mode');
+    } else if (!detectedManualCode) {
+        if (!appliedPromoCode && !isEditing) { 
+             document.getElementById('promoActionBtn').textContent = 'Apply';
+             document.getElementById('promoActionBtn').classList.remove('remove-mode');
+        }
+    }
+
+    let totalManualDiscount = manualProductDiscountTotal + manualCartDiscountTotal;
+    
+    if (totalManualDiscount > 0 && (appliedPromoCode || detectedManualCode)) {
+          let displayCode = appliedPromoCode || detectedManualCode;
+          promoHTML = `
+            <div class="footer-row promo-discount-row">
+              <span>Additional discount: ${displayCode}</span>
+              <span>-₹${(totalManualDiscount/100).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+            </div>`;
+          promoContainer.innerHTML = promoHTML;
+          promoContainer.style.display = 'block';
+    } else {
+          promoContainer.style.display = 'none';
+    }
+    
+    let displaySubtotal = cart.items_subtotal_price + manualProductDiscountTotal;
+    document.getElementById('subTotalDisplay').innerText = "₹" + (displaySubtotal / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});
+    document.getElementById('finalTotalDisplay').innerText = "₹" + (cart.total_price / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});
+
+    const savingsEl = document.getElementById('totalSavingsContainer');
+    if (grandTotalSavings > 0) {
+        document.getElementById('totalSavingsDisplay').innerText = "-₹" + (grandTotalSavings / 100).toLocaleString('en-IN', {minimumFractionDigits: 2});
+        savingsEl.style.display = 'flex';
+    } else {
+        savingsEl.style.display = 'none';
+    }
+  }
+
+  function updateItem(key, qty) {
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: key, quantity: qty })
+    }).then(() => {
+        refreshCart();
+        window.dispatchEvent(new CustomEvent('cart:updated'));
+    });
+  }
+
+  function toggleCart(open) { 
+    document.getElementById('sideCart').classList.toggle('open', open); 
+    if(!open) clearPromoError(); 
+  }
+  
+  function openModal() { 
+    document.getElementById("imageModal").style.display = "block"; 
+    document.getElementById("img01").src = document.getElementById('MainProductImg').src; 
+  }
+  
+  function closeModal() { 
+    document.getElementById("imageModal").style.display = "none"; 
+  }
+
+  let slideshowStarted = false;
+  function initSlideshowOnInteraction() {
+      if(!slideshowStarted) {
+          slideshowStarted = true;
+          
+          // Only trigger the initial start on desktop
+          if (window.innerWidth > 768) {
+              startSlideshow();
+          }
+          
+          document.removeEventListener('scroll', initSlideshowOnInteraction);
+          document.removeEventListener('touchstart', initSlideshowOnInteraction);
+      }
+  }
+  document.addEventListener('scroll', initSlideshowOnInteraction, {passive: true});
+  document.addEventListener('touchstart', initSlideshowOnInteraction, {passive: true});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Semi - {{ product.title | escape }}",
+  "image": "{{ product.featured_image | img_url: 'master' }}",
+  "description": "{{ product.description | strip_html | escape }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "Semi"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ shop.url }}{{ product.url }}",
+    "priceCurrency": "{{ cart.currency.iso_code }}",
+    "price": "{{ product.price | divided_by: 100.0 }}",
+    "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+  }
+}
+</script>
+
